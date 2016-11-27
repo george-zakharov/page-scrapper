@@ -28,14 +28,17 @@ Setup for virtual host example:
 ## Project structure ##
 * _core_ directory consists of general scripts of this application
 * _web_ directory consists of index file and _assets_.
-    * _assets_ stores css and js files used.
+    * _assets_ directory stores css and js files used.
+    * _upload_ directory stores docs and images uploaded
+        * _docs_ directory stores docs uploaded
+        * _images_ directory stores images uploaded
 
 ### web/index.php ###
 This is the entry point of the application.
 It consists of html layout with URL form inside.
 
 ### core/***.php ###
-Provides math operations with data.
+Provides operations with data.
 * Parameters:
     * `$***` for ***,
     * `$***` for ***,
