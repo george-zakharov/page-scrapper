@@ -1,9 +1,36 @@
 # Page Scrapper project #
 This application scraps links and images from the given URL.
 
-## File structure ##
+## Server setup ##
+Using Apache preferred.
+Setup for virtual host example:
+```
+<VirtualHost *:80>
+    ServerName page-scrapper.loc
+    DocumentRoot /home/wildwind/www/page-scrapper.loc/web/
+    <Directory />
+        # use mod_rewrite for pretty URL support
+        RewriteEngine on
+        # If a directory or a file exists, use the request directly
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        # Otherwise forward the request to index.php
+        RewriteRule . index.php
+        
+        # other settings
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
 
-### index.php ###
+## Project structure ##
+* _core_ directory consists of general scripts of this application
+* _web_ directory consists of index file and _assets_.
+    * _assets_ stores css and js files used.
+
+### web/index.php ###
 This is the entry point of the application.
 It consists of html layout with URL form inside.
 
@@ -21,17 +48,9 @@ Provides math operations with data.
     * `***` for ***,
     * `***` for ***.
 
-## css/bootstrap.min.css ##
-__Bootstrap__ file for html layout.
-
-## css/font-awesome.min.css ##
-__Font Awesome__ file for html layout.
-
-## css/main.css ##
-Main stylesheet for custom style.
-
-## js/bootstrap.min.js ##
-__Bootstrap__ file for dynamic html layout.
-
-## js/jquery-3.1.0.min.js ##
-__JQuery__ file for dynamic layout and AJAX support.
+## Assets used ##
+* css/bootstrap.min.css
+* css/font-awesome.min.css
+* css/main.css
+* js/bootstrap.min.js
+* js/jquery-3.1.0.min.js
