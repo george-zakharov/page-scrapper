@@ -9,3 +9,10 @@ This is main stylesheet.
 /*
 Common style
 */
+.input-container {
+    margin-top: 20em;
+}
+
+footer {
+    margin-top: 20em;
+}
