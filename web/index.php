@@ -22,13 +22,13 @@
         <!-- Input starts -->
         <div class="container input-container">
             <div class="row">
-                <div class="input-group col-xs-12">
+                <form class="input-group col-xs-12" action="result.php" method="post">
                     <span class="input-group-addon" id="basic-addon3">And your URL is:</span>
-                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="yandex.ru">
+                    <input type="text" class="form-control" name="basicUrl" id="basic-url" aria-describedby="basic-addon3" placeholder="site.com">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
+                        <button class="btn btn-default" type="submit">Go!</button>
                     </span>
-                </div>
+                </form>
             </div>
         </div>
         <!-- Input ends -->

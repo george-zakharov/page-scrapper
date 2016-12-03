@@ -21,12 +21,4 @@ abstract class ParserAbstract
     public static function parseDataFromUrl($url)
     {
     }
-
-    /**
-     * @return array
-     */
-    public static function getResultData()
-    {
-        return self::$resultData;
-    }
 }
