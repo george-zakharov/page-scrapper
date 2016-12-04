@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page Scrapper</title>
     <!-- Bootstrap stylesheet -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Custom main stylesheet -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <!-- Font Awesome stylesheet TODO: Delete if there is no use -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 </head>
 <body>
     <header class="text-center">
@@ -22,13 +22,13 @@
         <!-- Input starts -->
         <div class="container input-container">
             <div class="row">
-                <div class="input-group col-xs-12">
+                <form class="input-group col-xs-12" action="result.php" method="post">
                     <span class="input-group-addon" id="basic-addon3">And your URL is:</span>
-                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="yandex.ru">
+                    <input type="text" class="form-control" name="basicUrl" id="basic-url" aria-describedby="basic-addon3" placeholder="site.com">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
+                        <button class="btn btn-default" type="submit">Go!</button>
                     </span>
-                </div>
+                </form>
             </div>
         </div>
         <!-- Input ends -->
@@ -38,8 +38,8 @@
     </footer>
 
     <!-- JQuery script -->
-    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="assets/js/jquery-3.1.0.min.js"></script>
     <!-- Bootstrap script -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
