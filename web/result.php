@@ -1,5 +1,3 @@
-<?php use core\controllers\LinkParser as LinkParser; ?>
-<?php error_reporting('E_All'); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,33 +26,53 @@
                     <?php
                     // We got the input
                     if ($_POST['basicUrl']) {
-                        LinkParser::parseDataFromUrl($_POST['basicUrl']);
-                        print_r(LinkParser::$resultData);
-                    ?>
-                        <h1 class="text-center">Your resulting links</h1>
-                        <table class="table table-striped">
+                        $output = curl_init();
+                        curl_setopt($output, CURLOPT_URL, $_POST['basicUrl']);
+                        curl_setopt($output, CURLOPT_RETURNTRANSFER, 1);
+                        curl_setopt($output, CURLOPT_HEADER, 0);
+                        $resultHtml = curl_exec($output);
+
+//                        print_r($resultHtml);
+                        $rawHtml = $resultHtml;
+
+                        $dom = new DOMDocument;
+                        $dom->loadHTML($rawHtml);
+                        $node = $dom->getElementsByTagName('a');
+
+                        for ($i = 0; $i < $node->length; $i++) {
+                            $hrefText[] = $node->item($i)->getAttribute('href');
+                        }
+
+                        foreach ($hrefText as $hrefTextItem) {
+                            if ($hrefTextItem != '') {
+                                $clearedHrefs[] = $hrefTextItem;
+                            }
+                        }
+
+                        $resultData = array_unique($clearedHrefs);
+
+                        echo "
+                        <h1 class=\"text-center\">Your resulting links</h1>
+                        <table class=\"table table-striped\">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Link</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody>";
+
+                        for ($i=0; $i<=count($resultData); $i++) {
+                            echo "
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                            </tr>
+                                <th scope=\"row\">$i</th>
+                                <td>$resultData[$i]</td>
+                            </tr>";
+                        }
+
+                        echo "
                             </tbody>
-                        </table>
-                    <?php
+                        </table>";
                     // We have no input
                     } else {
                     ?>

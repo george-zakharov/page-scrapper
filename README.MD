@@ -3,6 +3,8 @@ This application scraps links and images from the given URL.
 
 ## Server setup ##
 Using Apache preferred.
+_Note: Need `php-curl` library to be installed._
+
 Setup for virtual host example:
 ```
 <VirtualHost *:80>
@@ -24,32 +26,6 @@ Setup for virtual host example:
     </Directory>
 </VirtualHost>
 ```
-
-## Project structure ##
-* _core_ directory consists of general scripts of this application
-* _web_ directory consists of index file and _assets_.
-    * _assets_ directory stores css and js files used.
-    * _upload_ directory stores docs and images uploaded
-        * _docs_ directory stores docs uploaded
-        * _images_ directory stores images uploaded
-
-### web/index.php ###
-This is the entry point of the application.
-It consists of html layout with URL form inside.
-
-### core/***.php ###
-Provides operations with data.
-* Parameters:
-    * `$***` for ***,
-    * `$***` for ***,
-    * `$***` for ***.
-* Main methods are:
-    * `__construct()` for ***,
-    * `***` to ***,
-    * `***` for ***,
-    * `***` for ***,
-    * `***` for ***,
-    * `***` for ***.
 
 ## Assets used ##
 * css/bootstrap.min.css
