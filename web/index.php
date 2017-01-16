@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page Scrapper</title>
     <!-- Bootstrap stylesheet -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <!-- Custom main stylesheet -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <!-- Font Awesome stylesheet TODO: Delete if there is no use -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/fortawesome/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
     <header class="text-center">
@@ -38,8 +38,8 @@
     </footer>
 
     <!-- JQuery script -->
-    <script src="assets/js/jquery-3.1.0.min.js"></script>
+    <script src="vendor/components/jquery/jquery.min.js"></script>
     <!-- Bootstrap script -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
