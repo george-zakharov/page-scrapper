@@ -1,3 +1,7 @@
+<?php
+    require_once '../Core/Controllers/LinkHandler.php';
+    $linkHandler = new Core\Controllers\LinkHandler($_POST['basicUrl']);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,73 +20,14 @@
 <body>
     <header class="text-center">
         <h1>Page scrapper</h1>
-        <h3> I got what you wanted :)</h3>
+        <h3> I've got what you wanted :)</h3>
     </header>
     <main>
         <!-- Input starts -->
         <div class="container input-container">
             <div class="row">
                 <div class="col-xs-12">
-                    <?php
-                    // We got the input
-                    if ($_POST['basicUrl']) {
-                        $output = curl_init();
-                        curl_setopt($output, CURLOPT_URL, $_POST['basicUrl']);
-                        curl_setopt($output, CURLOPT_RETURNTRANSFER, 1);
-                        curl_setopt($output, CURLOPT_HEADER, 0);
-                        $resultHtml = curl_exec($output);
-
-//                        print_r($resultHtml);
-                        $rawHtml = $resultHtml;
-
-                        $dom = new DOMDocument;
-                        $dom->loadHTML($rawHtml);
-                        $node = $dom->getElementsByTagName('a');
-
-                        $hrefText = [];
-                        for ($item = 0; $item < $node->length; $item++) {
-                            $hrefText[] = $node->item($item)->getAttribute('href');
-                        }
-
-                        $clearedLinks = [];
-                        foreach ($hrefText as $hrefTextItem) {
-                            if ($hrefTextItem !== '') {
-                                $clearedLinks[] = $hrefTextItem;
-                            }
-                        }
-
-                        $resultData = array_unique($clearedLinks);
-
-                        echo "
-                        <h1 class=\"text-center\">Your resulting links</h1>
-                        <table class=\"table table-striped\">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Link</th>
-                                </tr>
-                            </thead>
-                            <tbody>";
-
-                        foreach ($resultData as $linkNumber => $link) {
-                            echo "
-                            <tr>
-                                <th scope=\"row\">$linkNumber</th>
-                                <td>$link</td>
-                            </tr>";
-                        }
-
-                        echo "
-                            </tbody>
-                        </table>";
-                    // We have no input
-                    } else {
-                    ?>
-                        <h1 class="text-center">...but, wait a second. Give me your link to parse!</h1>
-                        <h3 class="text-center">For now you gave me nothing =/</h3>
-                    <?php
-                    }
-                    ?>
+                    <?= $linkHandler->getResultHtml(); ?>
                 </div>
             </div>
             <div class="row text-center">
@@ -94,7 +39,7 @@
         <!-- Input ends -->
     </main>
     <footer class="text-center">
-        Page Scrapper || Wild Wind Production <i class="fa fa-copyright"></i> <?= date('Y') ?>
+        Page Scrapper || Wild Wind Production <i class="fa fa-copyright"></i> <?= date('Y'); ?>
     </footer>
 
     <!-- JQuery script -->

@@ -34,7 +34,7 @@
         <!-- Input ends -->
     </main>
     <footer class="text-center">
-        Page Scrapper || Wild Wind Production <i class="fa fa-copyright"></i> <?= date('Y') ?>
+        Page Scrapper || Wild Wind Production <i class="fa fa-copyright"></i> <?= date('Y'); ?>
     </footer>
 
     <!-- JQuery script -->
