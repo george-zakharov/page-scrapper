@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <!-- Custom main stylesheet -->
     <link rel="stylesheet" href="css/main.css">
-    <!-- Font Awesome stylesheet TODO: Delete if there is no use -->
+    <!-- Font Awesome stylesheet -->
     <link rel="stylesheet" href="vendor/fortawesome/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
         <div class="container input-container">
             <div class="row">
                 <form class="input-group col-xs-12" action="result.php" method="post">
-                    <span class="input-group-addon" id="basic-addon3">And your URL is:</span>
+                    <span class="input-group-addon" id="basic-addon3">So your URL is:</span>
                     <input type="text" class="form-control" name="basicUrl" id="basic-url" aria-describedby="basic-addon3" placeholder="site.com">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="submit">Go!</button>
@@ -34,7 +34,7 @@
         <!-- Input ends -->
     </main>
     <footer class="text-center">
-        Page Scrapper || Wild Wind Production &copy; 2016
+        Page Scrapper || Wild Wind Production <i class="fa fa-copyright"></i> <?= date('Y') ?>
     </footer>
 
     <!-- JQuery script -->

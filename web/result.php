@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Result Page</title>
     <!-- Bootstrap stylesheet -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <!-- Custom main stylesheet -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <!-- Font Awesome stylesheet TODO: Delete if there is no use -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Font Awesome stylesheet -->
+    <link rel="stylesheet" href="vendor/fortawesome/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
     <header class="text-center">
@@ -39,17 +39,19 @@
                         $dom->loadHTML($rawHtml);
                         $node = $dom->getElementsByTagName('a');
 
-                        for ($i = 0; $i < $node->length; $i++) {
-                            $hrefText[] = $node->item($i)->getAttribute('href');
+                        $hrefText = [];
+                        for ($item = 0; $item < $node->length; $item++) {
+                            $hrefText[] = $node->item($item)->getAttribute('href');
                         }
 
+                        $clearedLinks = [];
                         foreach ($hrefText as $hrefTextItem) {
-                            if ($hrefTextItem != '') {
-                                $clearedHrefs[] = $hrefTextItem;
+                            if ($hrefTextItem !== '') {
+                                $clearedLinks[] = $hrefTextItem;
                             }
                         }
 
-                        $resultData = array_unique($clearedHrefs);
+                        $resultData = array_unique($clearedLinks);
 
                         echo "
                         <h1 class=\"text-center\">Your resulting links</h1>
@@ -62,11 +64,11 @@
                             </thead>
                             <tbody>";
 
-                        for ($i=0; $i<=count($resultData); $i++) {
+                        foreach ($resultData as $linkNumber => $link) {
                             echo "
                             <tr>
-                                <th scope=\"row\">$i</th>
-                                <td>$resultData[$i]</td>
+                                <th scope=\"row\">$linkNumber</th>
+                                <td>$link</td>
                             </tr>";
                         }
 
@@ -92,12 +94,12 @@
         <!-- Input ends -->
     </main>
     <footer class="text-center">
-        Page Scrapper || Wild Wind Production &copy; 2016
+        Page Scrapper || Wild Wind Production <i class="fa fa-copyright"></i> <?= date('Y') ?>
     </footer>
 
     <!-- JQuery script -->
-    <script src="assets/js/jquery-3.1.0.min.js"></script>
+    <script src="vendor/components/jquery/jquery.min.js"></script>
     <!-- Bootstrap script -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
