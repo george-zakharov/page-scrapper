@@ -9,7 +9,7 @@ Setup for virtual host example:
 ```
 <VirtualHost *:80>
     ServerName page-scrapper.loc
-    DocumentRoot /home/wildwind/www/page-scrapper.loc/web/
+    DocumentRoot /home/YOURNAME/www/page-scrapper.loc/web/
     <Directory />
         # use mod_rewrite for pretty URL support
         RewriteEngine on
